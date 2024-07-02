@@ -17,7 +17,7 @@ class AdaptiveRAG():
         workflow.add_node("retriever", self.context_retriever) 
         workflow.add_node("search_tool", self.web_search)
         workflow.add_node("grader", self.grade_documents)
-        workflow.add_node("query_rewriter", self.grade_documents)
+        workflow.add_node("query_rewriter", self.rewriter)
         
         workflow.set_conditional_entry_point(
             self.route_query,
@@ -49,7 +49,7 @@ class AdaptiveRAG():
         documents=[]
         docs=self.retriever.rerank(query=question)
         for doc in docs:
-            documents.append(docs.page_content)
+            documents.append(doc.page_content)
         return {"question":question, "documents":documents}
 
     def web_search(self, state: AgentState):
@@ -96,8 +96,8 @@ class AdaptiveRAG():
         question=state["question"]
         documents=state["documents"]
         response=state["response"]
-        hallucation_grader=hallucation_grader(self.llm)
-        score=hallucation_grader.invoke({"question":question, "documents":documents, "response":response})
+        ha_grader=hallucation_grader(self.llm)
+        score=ha_grader.invoke({"question":question, "documents":documents, "response":response})
         if score.binary_score == "yes":
             return "useful"
         else:
