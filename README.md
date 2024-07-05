@@ -1,7 +1,8 @@
 # adaptive-rag-matryoshka
 This repository contains finetuning notebooks for embedding model (BGE) by matryoshka representation learning, llama3 by LoRA and the implementation of Adaptive RAG system.
 # Citation
-@inproceedings{jeong2024adaptiverag,
+
+""" @inproceedings{jeong2024adaptiverag,
   author       = {Soyeong Jeong and
                   Jinheon Baek and
                   Sukmin Cho and
@@ -11,4 +12,4 @@ This repository contains finetuning notebooks for embedding model (BGE) by matry
   booktitle={NAACL},
   year={2024},
   url={https://arxiv.org/abs/2403.14403}
-}
+} """ 
