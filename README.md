@@ -1,6 +1,5 @@
 # Adaptive RAG with Matryoshka-finetuned Retriever
-This repository contains finetuning notebooks for embedding model (BGE) by matryoshka representation learning, 
-llama3 by LoRA and the implementation of Adaptive RAG system.
+This repository contains finetuning notebooks for embedding model (BGE) by matryoshka representation learning, llama3 by LoRA and the implementation of Adaptive RAG system.
 # Citation
 
 ![adaptive-RAG](https://github.com/phamkinhquoc2002/adaptive-rag-matryoshka/blob/main/img.png)
